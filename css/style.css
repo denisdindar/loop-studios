@@ -293,7 +293,7 @@ h2 {
 }
 
 .hero {
-  min-height: calc(100vh - 17.2rem);
+  min-height: calc(70vh - 17rem);
 }
 .hero__content {
   display: -webkit-box;
@@ -309,7 +309,7 @@ h2 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: calc(100vh - 17.2rem);
+  min-height: calc(100vh - 17rem);
   margin: auto 2.5rem;
 }
 @media (min-width: 40em) {
