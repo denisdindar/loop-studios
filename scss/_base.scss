@@ -1,0 +1,36 @@
+html {
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  @include font(var(--font), 1.5rem, 400, var(--white));
+  @include bg("../images/mobile/image-hero.jpg", cover);
+  background-repeat: no-repeat;
+  background-color: var(--white);
+  position: relative;
+  min-width: 100%;
+  height: 100vh;
+
+  @include res(m) {
+    @include bg("../images/desktop/image-hero.jpg", cover);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  @include font(var(--font-heading));
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 3.4rem;
+  text-align: center;
+  color: var(--black);
+}

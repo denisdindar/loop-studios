@@ -1,0 +1,106 @@
+// Responsive Breakpoints (mobile first)
+$breakpoints: (
+  // 640px - phone
+  "m": 40em,
+  // 960px - tablet
+  "l": 60em,
+  // 1200px custom
+  "laptop": 75em,
+  // 1440px - large
+  "xl": 90em
+) !default;
+
+@mixin res($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Button Override
+@mixin btn {
+  display: inline-block;
+  background: transparent;
+  margin: 0;
+  border: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+
+// Font-Family
+@mixin font($name, $size: null, $weight: null, $color: null) {
+  font-family: $name;
+  @if $size {
+    font-size: $size;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $color {
+    color: $color;
+  }
+}
+
+// Background Elements
+@mixin bg($image, $size, $position: null) {
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-size: $size;
+  background-position: $position;
+}
+
+// Absolute Position with Pseudo
+@mixin absolute(
+  $w,
+  $h,
+  $t: null,
+  $r: null,
+  $b: null,
+  $l: null,
+  $z: null,
+  $pseudo: null
+) {
+  @if $pseudo {
+    content: "";
+    display: block;
+  }
+  position: absolute;
+  width: $w;
+  height: $h;
+  @if $t {
+    top: $t;
+  }
+  @if $r {
+    right: $r;
+  }
+  @if $b {
+    bottom: $b;
+  }
+  @if $l {
+    left: $l;
+  }
+  @if $z {
+    z-index: $z;
+  }
+}
+
+// Centering with margin
+@mixin center($x) {
+  margin: 0 $x;
+}
+
+// Flexbox
+@mixin flex($direction: null, $justify: null, $align: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
